@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Dragonkeep | Dragonkeep</title><meta name="author" content="Dragonkeep"><meta name="copyright" content="Dragonkeep"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java反射学习什么是反射Java 反射是一种机制，允许在运行时检查、获取和操作类、接口、字段、方法等的信息。通过反射，你可以在编译时不知道类的具体信息的情况下，动态地获取并操作类的成员。Java 反射提供了一组类和接口，使得可以在运行时获取类的元数据，调用类的方法，访问类的字段，甚至创建新的类实例。 简单来说，就是在对象生成后，还能通过反射机制来获取对象的信息，操作对象的各种属性，修改属性值，调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dragonkeep">
+<meta property="og:url" content="http://dragonkeeep.top/category/Java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Dragonkeep">
+<meta property="og:description" content="Java反射学习什么是反射Java 反射是一种机制，允许在运行时检查、获取和操作类、接口、字段、方法等的信息。通过反射，你可以在编译时不知道类的具体信息的情况下，动态地获取并操作类的成员。Java 反射提供了一组类和接口，使得可以在运行时获取类的元数据，调用类的方法，访问类的字段，甚至创建新的类实例。 简单来说，就是在对象生成后，还能通过反射机制来获取对象的信息，操作对象的各种属性，修改属性值，调">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://dragonkeeep.top/img/Pic.jpg">
+<meta property="article:published_time" content="2023-08-28T17:17:51.304Z">
+<meta property="article:modified_time" content="2023-08-28T17:17:10.032Z">
+<meta property="article:author" content="Dragonkeep">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://dragonkeeep.top/img/Pic.jpg"><link rel="shortcut icon" href="/"><link rel="canonical" href="http://dragonkeeep.top/category/Java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Dragonkeep',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-29 01:17:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Pic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.dmoe.cc/random.php')"><nav id="nav"><span id="blog-info"><a href="/" title="Dragonkeep"><span class="site-name">Dragonkeep</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-28T17:17:51.304Z" title="发表于 2023-08-29 01:17:51">2023-08-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-28T17:17:10.032Z" title="更新于 2023-08-29 01:17:10">2023-08-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Java反射学习"><a href="#Java反射学习" class="headerlink" title="Java反射学习"></a>Java反射学习</h1><h3 id="什么是反射"><a href="#什么是反射" class="headerlink" title="什么是反射"></a>什么是反射</h3><p>Java 反射是一种机制，允许在运行时检查、获取和操作类、接口、字段、方法等的信息。通过反射，你可以在编译时不知道类的具体信息的情况下，动态地获取并操作类的成员。Java 反射提供了一组类和接口，使得可以在运行时获取类的元数据，调用类的方法，访问类的字段，甚至创建新的类实例。</p>
+<p><strong>简单来说，就是在对象生成后，还能通过反射机制来获取对象的信息，操作对象的各种属性，修改属性值，调用方法等</strong></p>
+<h3 id="反射机制相关的包"><a href="#反射机制相关的包" class="headerlink" title="反射机制相关的包"></a>反射机制相关的包</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.reflect.*;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反射机制相关类"><a href="#反射机制相关类" class="headerlink" title="反射机制相关类"></a>反射机制相关类</h3><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>含义及作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>java.lang.Class</td>
+<td>代表整个字节码。代表一个类型，代表整个类。用来获取反射的类</td>
+</tr>
+<tr>
+<td>java.lang.reflect.Constructor</td>
+<td>代表字节码中的构造方法字节码。用来获取类中的构造方法。</td>
+</tr>
+<tr>
+<td>java.lang.reflect.Field</td>
+<td>代表字节码中的属性字节码。用来类中的成员变量（静态变量+实例变量），不包括方法。</td>
+</tr>
+<tr>
+<td>java.lang.reflect.Method</td>
+<td>代表字节码中的方法字节码。代表类中的方法。</td>
+</tr>
+</tbody></table>
+<h3 id="获取Class字节码的三种方式"><a href="#获取Class字节码的三种方式" class="headerlink" title="获取Class字节码的三种方式"></a>获取Class字节码的三种方式</h3><p>要对一个类进行操作，得先能够获取它的类字节码。</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Class.forName(“完整类名带包名”)</td>
+<td>Class.forname(“com.sec.reflection.Person”)</td>
+</tr>
+<tr>
+<td>对象.getClass()</td>
+<td>person.getClass()</td>
+</tr>
+<tr>
+<td>任何类型.class</td>
+<td>String.class</td>
+</tr>
+</tbody></table>
+<p>接着用Person类进行说明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.security;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="comment">// Field</span></span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Constructor</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(String name,<span class="type">int</span> age)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">action1</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;action1 with nothing&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">action2</span><span class="params">(String action)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;action2 with &quot;</span>+action);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">action3</span><span class="params">(String action)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;action3 with &quot;</span>+action);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person&#123;name=&quot;</span>+name+<span class="string">&quot;,age=&quot;</span>+age+<span class="string">&quot;&#125;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="实例化反射对象"><a href="#实例化反射对象" class="headerlink" title="实例化反射对象"></a>实例化反射对象</h3><p>获取了类的字节码后，对类进行实例化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person person=<span class="keyword">new</span> <span class="title class_">Persion</span>();</span><br><span class="line">Class c=person.getClass();</span><br><span class="line"><span class="comment">//调用无参的构造方法，可以直接使用newInstance()</span></span><br><span class="line">Person p=(Person)c.newInstance();</span><br></pre></td></tr></table></figure>
+
+<p>如果要调用有参数的构造方法，就需要使用到<code>Constructor</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过getConstructor()方法构造出构造器，构造器的参数为构造函数的参数对应的字节类</span></span><br><span class="line"><span class="comment">//String-&gt;String.class</span></span><br><span class="line"><span class="comment">//int-&gt;int.class</span></span><br><span class="line">Constructor constructor=c.getConstructor(String.class,<span class="type">int</span>.class);</span><br><span class="line"><span class="comment">//使用newInstance(),参数就和正常的构造函数一样</span></span><br><span class="line">Person p=(Person)constructor.newInstance(<span class="string">&quot;Dragonkeep&quot;</span>,<span class="number">22</span>);</span><br><span class="line">System.out.println(p);</span><br></pre></td></tr></table></figure>
+
+<p>执行结果如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person&#123;name=Dragonkeep,age=<span class="number">22</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取反射对象的属性"><a href="#获取反射对象的属性" class="headerlink" title="获取反射对象的属性"></a>获取反射对象的属性</h3><p>利用<code>Class</code>类中的<code>getField()</code>方法来获取反射对象中属性的值。<code>getFields()</code>方法会返回所有公共属性的类型的成员变量数组，同样也是<code>Field</code>类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Field PersonField=c.getField(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">System.out.println(PersonField.get(p));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为<code>Dragonkeep</code></p>
+<p>如果是要<strong>获取私用属性的值</strong>的话，需要使用<code>getDecleardField()</code>方法。</p>
+<p>例如上面例子中的<code>age</code>属性，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Field</span> <span class="variable">PersonField</span> <span class="operator">=</span>c.getDeclaredField(<span class="string">&quot;age&quot;</span>);</span><br><span class="line">PersonField.setAccessible(<span class="literal">true</span>);   <span class="comment">//通过setAccessible()方法修改访问属性</span></span><br><span class="line">System.out.println(PersonField.get(p));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为<code>22</code></p>
+<p>当然不仅可以<code>get</code>也可以使用<code>set</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Field PersonField=c.getDeclaredField(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">PersonField.set(p,<span class="string">&quot;dragonkeep&quot;</span>);  <span class="comment">//set(Object obj, Object value)指定对象，和值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="获取反射对象的方法"><a href="#获取反射对象的方法" class="headerlink" title="获取反射对象的方法"></a>获取反射对象的方法</h3><p>利用<code>Class类</code>中的<code>getMethod(String name,Class&lt;?&gt;... parameterTypes)</code>方法来获取方法.，在配合<code>Method</code>类中的<code>invoke(Object obj, Object... args)</code>进行调用方法。</p>
+<p><strong>getMethod</strong>:</p>
+<ul>
+<li>name:为方法名</li>
+<li>parameterTypes:为方法参数对应的字节码类</li>
+</ul>
+<p><strong>invoke</strong>:</p>
+<ul>
+<li>obj:为反射对象</li>
+<li>args:方法对应的实参</li>
+</ul>
+<p>下面举例说明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span>c.getMethod(<span class="string">&quot;action1&quot;</span>);  <span class="comment">//调用无参方法</span></span><br><span class="line">method.invoke(p);  </span><br><span class="line">Method method2=c.getMethod(<span class="string">&quot;action2&quot;</span>,String.class);</span><br><span class="line">method2.invoke(p,<span class="string">&quot;Happy~&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">action1 with nothing</span><br><span class="line">action2 with Happy~</span><br></pre></td></tr></table></figure>
+
+<p>如果是获取私有属性的方法，就使用<code>getDeclaredMethod</code>.</p>
+<p>使用技巧同上<code>getDecleardField()</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Method method3=c.getDeclaredMethod(<span class="string">&quot;action3&quot;</span>, String.class);</span><br><span class="line">method3.setAccessible(<span class="literal">true</span>);</span><br><span class="line">method3.invoke(p,<span class="string">&quot;Don`t sad&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">action3 with Don`t sad</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>使用<code>getDecleard()*</code>的方法能访问<strong>私有属性和公有</strong>，相比<code>get*()</code>方法好用。</p>
+<h3 id="Java利用反射执行本地命令代码"><a href="#Java利用反射执行本地命令代码" class="headerlink" title="Java利用反射执行本地命令代码"></a>Java利用反射执行本地命令代码</h3><p>反射<code>Runtime类</code>执行本地命令代码，Runtime类位于<code>java.lang.Runtime</code>包中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取Runtime类对象</span></span><br><span class="line">Class runtimeClass1=Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line"><span class="comment">//获取构造方法</span></span><br><span class="line">Constructor constructor=runtimeClass1.getDeclaredConstructor();</span><br><span class="line">constructor.setAccessible(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">//创造实例</span></span><br><span class="line">Runtime runtimeObject=(Runtime) constructor.newInstance();</span><br><span class="line"><span class="comment">//调用方法</span></span><br><span class="line">Method methodExec=runtimeClass1.getDeclaredMethod(<span class="string">&quot;exec&quot;</span>, 				String.class);</span><br><span class="line">methodExec.setAccessible(<span class="literal">true</span>);</span><br><span class="line">methodExec.invoke(runtimeObject,<span class="string">&quot;calc&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在<code>java9+</code>后的版本， Java 模块系统不允许通过反射访问 <code>java.lang</code> 包中的私有构造函数</p>
+<p>会报<code>java.lang.reflect.InaccessibleObjectException</code>错误。</p>
+<p><strong>参考学习</strong>：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16h411z7o9?p=2&vd_source=a5a8625ff169db06646bc538b720fc79">Java反射+URLDNS链_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44715943/article/details/120587716">Java反射（超详细！）_一个快乐的野指针~的博客-CSDN博客</a></p>
+<p>本文仅供学习记录，不足之处请指出，谢谢。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://dragonkeeep.top">Dragonkeep</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dragonkeeep.top/category/Java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0/">http://dragonkeeep.top/category/Java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dragonkeeep.top" target="_blank">Dragonkeep</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/Pic.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/category/%E5%AD%A6%E4%B9%A0Quino%E6%B3%A8%E5%85%A5/" title="学习Quino注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">学习Quino注入</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Pic.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Dragonkeep</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">Java反射学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84"><span class="toc-number">1.0.1.</span> <span class="toc-text">什么是反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9B%B8%E5%85%B3%E7%9A%84%E5%8C%85"><span class="toc-number">1.0.2.</span> <span class="toc-text">反射机制相关的包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9B%B8%E5%85%B3%E7%B1%BB"><span class="toc-number">1.0.3.</span> <span class="toc-text">反射机制相关类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96Class%E5%AD%97%E8%8A%82%E7%A0%81%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">1.0.4.</span> <span class="toc-text">获取Class字节码的三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%8F%8D%E5%B0%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.0.5.</span> <span class="toc-text">实例化反射对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%8F%8D%E5%B0%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">1.0.6.</span> <span class="toc-text">获取反射对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%8F%8D%E5%B0%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.7.</span> <span class="toc-text">获取反射对象的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">1.0.8.</span> <span class="toc-text">总结：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E5%88%A9%E7%94%A8%E5%8F%8D%E5%B0%84%E6%89%A7%E8%A1%8C%E6%9C%AC%E5%9C%B0%E5%91%BD%E4%BB%A4%E4%BB%A3%E7%A0%81"><span class="toc-number">1.0.9.</span> <span class="toc-text">Java利用反射执行本地命令代码</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/Java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0/" title="无题">无题</a><time datetime="2023-08-28T17:17:51.304Z" title="发表于 2023-08-29 01:17:51">2023-08-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/%E5%AD%A6%E4%B9%A0Quino%E6%B3%A8%E5%85%A5/" title="学习Quino注入">学习Quino注入</a><time datetime="2023-08-23T18:00:03.601Z" title="发表于 2023-08-24 02:00:03">2023-08-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/php%E7%89%B9%E6%80%A7/" title="php特性(ctf.show)">php特性(ctf.show)</a><time datetime="2023-08-23T10:18:03.469Z" title="发表于 2023-08-23 18:18:03">2023-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/%E4%B8%AA%E4%BA%BA/" title="About me">About me</a><time datetime="2023-08-22T15:43:33.779Z" title="发表于 2023-08-22 23:43:33">2023-08-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/Nep%20WP/" title="Nep部分题目WP">Nep部分题目WP</a><time datetime="2023-08-22T14:15:38.432Z" title="发表于 2023-08-22 22:15:38">2023-08-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Dragonkeep</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'GFZPevO0zWLELDi0dvw4FOkP-gzGzoHsz',
+      appKey: 'YIDOusH5DcKlmrmKtWhMUhUU',
+      avatar: 'monsterid',
+      serverURLs: 'https://gfzpevo0.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
