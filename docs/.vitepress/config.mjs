@@ -5,7 +5,7 @@ import { getSidebar } from "./utils/getSidebar";
 export default defineConfig({
 
   // 标签上显示的网站标题
-  title: "Easy VitePress Blog",
+  title: "Dragonkeep Blog",
   titleTemplate: "Blog",
   
   // 在标签上显示所的 logo
@@ -13,7 +13,7 @@ export default defineConfig({
 
   // 网站描述，有利于被搜索引擎捕获
   description:  
-    "zbwer's tech blog: An undergraduate's journey through frontend development, sharing insights, tips, and experiences in web technologies.",
+    "DragonKeep 的技术博客：专注于网络安全、Web 开发与 CTF 实践的学习与分享。",
   // 网站部署的基础路径
   base: '/', 
   // md 文件根目录
@@ -26,16 +26,16 @@ export default defineConfig({
     logo: "/logo.svg",
     // 顶部导航栏
     nav: [
-      { text: "👋 About", link: "/AboutMe.md" },
-      { text: "💭 Blogs", link: "/Notes/index" },
-      { text: "🦄 Projects", link: "Projects.md" },
-      { text: "👫 Friends", link: "Friends.md" },
+      { text: "Blogs", link: "/Notes/index" },
+      { text: "Projects", link: "Projects.md" },
+      { text: "Friends", link: "Friends.md" },
+      { text: "About", link: "/AboutMe.md" },
     ],
     // 顶部导航栏左侧的社交平台跳转
     socialLinks: [{ icon: "github", link: "https://github.com/dragonkeep" }],
     // 首页底部版权声明
     footer: {
-      copyright: "Copyright © 2023-present zbwer",
+      copyright: "Copyright © 2025-present Dragonkeep",
     },
     // 【文章页面左侧导航】
     sidebar: {

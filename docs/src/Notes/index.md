@@ -3,18 +3,20 @@ layout: page
 sidebar: false
 
 hero:
-  title: "Document"
-  subTitle: "📚 欢迎来到本项目的使用说明书"
+  title: "Dragonkeep"
 
 types:
-  - name: "使用指南"
-    desc: "How to Use"
-    link: "/Notes/0tutorial/quickstart"
-    icon: "✨"
-  - name: "面经分享"
-    desc: "interview experiences"
-    link: "/Notes/Interviews/"
-    icon: "🏃"
+  - name: "CTF"
+    desc: "CTF Writeup"
+    link: "/Notes/CTF"
+    icon: "🎯"
+  - name: "代码审计"
+    desc: "Code Audit"
+    link: "/Notes/Code Audit/"
+    icon: "🔍"
+  - name: "渗透经历"
+    desc: "Share interesting penetration experiences"
+    icon: "⚔️"
 # flow: true
 ---
 

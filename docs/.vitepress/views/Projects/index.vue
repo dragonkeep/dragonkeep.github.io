@@ -1,7 +1,7 @@
 <template>
     <VPTeamPage>
       <VPTeamPageTitle>
-        <template #title>🎯 Projects ✨</template>
+        <template #title> Projects </template>
         <template #lead>My Open Source Projects</template>
       </VPTeamPageTitle>
       <div class="px-6 md:px-12 lg:px-16">
