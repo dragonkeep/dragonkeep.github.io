@@ -5,7 +5,7 @@ import { getSidebar } from "./utils/getSidebar";
 export default defineConfig({
 
   // 标签上显示的网站标题
-  title: "Dragonkeep Blog",
+  title: "Dragonkeep",
   titleTemplate: "Blog",
   
   // 在标签上显示所的 logo
