@@ -47,7 +47,7 @@ function generate(notesRootPath: string, pagePath: string, prefix = "", depth = 
     if (stats.isDirectory()) {
       const childItems = generate(notesRootPath, file, relDir, depth + 1);
       // 剔除不包含 md 文件的目录
-      if (childItems[0].items!.length === 0) continue;
+      if (childItems.length === 0 || !childItems[0] || childItems[0].items!.length === 0) continue;
       sidebarSection.items!.push(...childItems);
     }
     // 对于文件

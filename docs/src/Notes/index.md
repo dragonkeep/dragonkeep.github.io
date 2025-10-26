@@ -16,6 +16,7 @@ types:
     icon: "🔍"
   - name: "渗透经历"
     desc: "Share interesting penetration experiences"
+    link: "/Notes/Penetration"
     icon: "⚔️"
 # flow: true
 ---
