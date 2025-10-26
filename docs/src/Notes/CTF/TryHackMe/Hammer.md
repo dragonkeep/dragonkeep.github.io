@@ -4,6 +4,7 @@ outline: deep
 tags: "CTF, writeup, TryHackMe"
 updateTime: "2025-10-25 17:38"
 ---
+# Hammer
 *With the Hammer in hand, can you bypass the authentication mechanisms and get RCE on the system?*
 *有了 Hammer，您能否绕过身份验证机制并在系统上安装 RCE？*
 
