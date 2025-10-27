@@ -32,5 +32,5 @@ features:
   - icon: 🚀
     title: 个人开发工具
     details: 个人开发安全工具项目
-    link: /projects
+    link: /Projects
 ---

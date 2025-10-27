@@ -8,7 +8,7 @@ updateTime: "2025-10-25 17:38"
 *With the Hammer in hand, can you bypass the authentication mechanisms and get RCE on the system?*
 *有了 Hammer，您能否绕过身份验证机制并在系统上安装 RCE？*
 
-先使用Rustscan扫描端口开放情况
+先使用Rustscan扫描端口开放情况  
 
 ```
 ┌──(dragonkeep㉿kali)-[~]
