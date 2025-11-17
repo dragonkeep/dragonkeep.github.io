@@ -54,7 +54,7 @@ const { frontmatter: pageData, theme } = useData();
 const { hero, types, features, flow } = pageData.value;
 
 // 根据当前 page 名称获取 sidebar 数据并构造相应的类别
-const pathname = window.location.pathname;
+const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
 const sidebarData = theme.value.sidebar?.[pathname];
 const categories =
   types || sidebarData?.items.map((item: any) => ({ name: item.text, link: item.link }));
