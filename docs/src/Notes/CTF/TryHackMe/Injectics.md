@@ -4,6 +4,8 @@ outline: deep
 tags: "CTF, writeup, TryHackMe"
 updateTime: "2025-11-15 21:38"
 ---
+# Injectics
+
 *Can you utilise your web pen-testing skills to safeguard the event from any injection attack?*
 *您能否运用您的网络渗透测试技能来保护活动免受任何注入攻击？*
 

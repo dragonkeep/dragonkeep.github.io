@@ -46,7 +46,7 @@ npm run dev
 
 ![image](assets/CRMEB/image-20250320195358-h2n0ugp.png)
 
-```poc
+```
 POST /api/admin/system/store/order/list HTTP/1.1
 Host: 192.168.196.156:8080
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
@@ -105,7 +105,7 @@ keywords=1'
 
 ![image](assets/CRMEB/image-20250320220357-npiv5e4.png)
 
-```poc
+```
 GET /api/admin/store/product/list?type=1&cateId=1' HTTP/1.1
 Host: 192.168.196.156:8080
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36

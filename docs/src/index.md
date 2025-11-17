@@ -17,6 +17,10 @@ hero:
       link: /AboutMe
 
 features:
+  - icon: 📓
+    title: 个人学习笔记
+    details: 记录个人的学习过程
+    link: /Notes/Note
   - icon: 🎯
     title: CTF Writeup
     details: 记录个人CTF解题过程
@@ -29,8 +33,4 @@ features:
     title: 渗透测试分享
     details: 记录个人渗透测试中有趣的经历
     link: /Notes/Penetration
-  - icon: 🚀
-    title: 个人开发工具
-    details: 个人开发安全工具项目
-    link: /Projects
 ---
