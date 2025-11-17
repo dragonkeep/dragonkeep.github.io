@@ -9,3 +9,15 @@ export const fileName2Title: Record<string, string> = {
   "0tutorial": "使用指南",
   Interviews: "示例文件",
 };
+
+/**
+ * 自定义文件夹排序
+ * 数字越小，排序越靠前
+ * 未配置的文件夹将按字母顺序排在后面
+ */
+export const folderOrder: Record<string, number> = {
+  "Note": 1,
+  "CTF": 2,
+  "Code Audit": 3,
+  "Penetration": 4,
+};

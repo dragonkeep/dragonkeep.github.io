@@ -1,7 +1,7 @@
 import { readdirSync, statSync } from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { fileName2Title } from "../userConfig/translations.js";
+import { fileName2Title, folderOrder } from "../userConfig/translations.js";
 import { formatDate } from "./formatDate.js";
 
 const INDEX_FILE = "index";
@@ -38,7 +38,15 @@ function generate(notesRootPath: string, pagePath: string, prefix = "", depth = 
   };
 
   const files = readdirSync(dir) || [];
-  files.sort();
+  // 自定义排序：优先按 folderOrder 排序，未配置的按字母顺序排在后面
+  files.sort((a, b) => {
+    const orderA = folderOrder[a] ?? Infinity;
+    const orderB = folderOrder[b] ?? Infinity;
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
+    return a.localeCompare(b);
+  });
 
   for (const file of files) {
     const filePath = path.join(dir, file);
