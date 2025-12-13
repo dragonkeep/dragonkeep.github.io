@@ -19,6 +19,8 @@ export default defineConfig({
   // md 文件根目录
   // 【谨慎修改】：一旦修改将引起较多变动
   srcDir: "./src",
+  // ✅ 关闭死链接检查（安全博客 / 漏洞 payload 必须）
+  ignoreDeadLinks: true,
 
   // 主题自定义
   themeConfig: {
