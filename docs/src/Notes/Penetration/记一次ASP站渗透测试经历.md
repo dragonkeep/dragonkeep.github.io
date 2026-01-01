@@ -4,7 +4,7 @@ outline: deep
 tags: "Penetration"
 updateTime: "2025-12-28 23:00"
 ---
-
+# 记一次ASP站渗透测试经历
 
 ## 0x 01 前言
 
@@ -91,3 +91,31 @@ SQLMAP指定一下前缀`--prefix="')"`就秒出，看来还是不能太心急�
 相比Java站点，`ASP.NET WebForms`这类站点，在没有口令情况下属实难以动手，但一旦能进入到后台，文件上传很大都没有限制后缀，不像现在一些Java框架，直接在配置文件里面写了限制后缀`jsp`等，SQL注入出现的概率也会相对高一些。其实看到`ASP.NET WebForms`框架第一时间想的是打`ViewState`反序列化，但是貌似开了`ViewState MAC`（主要还是研究得少，下回系统研究一下），没那么好打。
 
 ![image](assets/记一次ASP站渗透测试经历/image-20251228225548-bk16ky9.png)
+
+## 0x 04 后续
+
+在资产测绘搜索过程中，发现这个框架存在不少资产，其实也不多就几百个，根据接口批量进行扫描，在其他站点发现了一些其他接口存在SQL注入。首先是在后台有个`高级搜索`功能，点击之后会有能筛选字段，随便点击进行搜索。
+
+![image](assets/记一次ASP站渗透测试经历/image-20260102000120-to65bim.png)
+
+![image](assets/记一次ASP站渗透测试经历/image-20260102000141-uks0hv5.png)
+
+使用Yakit抓包发现存在POST请求包，这个包中的很多字段跟前面那个包基本一致，所以也均存在SQL注入，大致FUZZ了一下
+
+`ctl00%24cphMain%24txtSearchTitle`
+
+`ctl00%24cphMain%24txtSearchCreated`
+
+`ctl00%24cphMain%24txtSearchStart`
+
+`ctl00%24cphMain%24txtSearchEnd`
+
+这些参数均存不同拼接的SQL注入，大致的注入语句都差不多
+
+使用payload：`' AND 1/DB_NAME() ='`就可以成功注入，这里使用`1/xxx`，xxx为字符串，这样可以让数据库类型转换失败而导致报错，至于后面拼接`=`是为了表达式值为`bool`类型，否则SQL语法会执行不了（根据单引号报错出来的SQL语句以及报错信息），忘了截图。。。
+
+![image](assets/记一次ASP站渗透测试经历/image-20260102001020-aazx9ib.png)
+
+根据这个`高级搜索`功能，猜测其他接口也很可能会调用这个接口，毕竟是筛选功能，果不期然，也是找到三四个接口可以直接打，最后报告交上去也是刷了38Rank，可惜教育资产使用这个系统并不多。
+
+![image](assets/记一次ASP站渗透测试经历/image-20260102001624-ctl57bd.png)
