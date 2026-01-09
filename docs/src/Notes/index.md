@@ -18,6 +18,8 @@ types:
   - name: "渗透经历"
     link: "/Notes/Penetration"
     icon: "⚔️"
+  - name: "人生快乐秘籍"
+    link: "/Notes/Cartoon"
 # flow: true
 ---
 

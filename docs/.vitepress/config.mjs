@@ -31,6 +31,7 @@ export default defineConfig({
       { text: "Blogs", link: "/Notes/index" },
       { text: "Projects", link: "Projects.md" },
       { text: "Friends", link: "Friends.md" },
+      { text: "Cartoon",link: "/Notes/Cartoon/Cartoon.html"},
       { text: "About", link: "/AboutMe.md" },
     ],
     // 顶部导航栏左侧的社交平台跳转
