@@ -19,5 +19,12 @@ export const projectsInfo: Project[] = [
     link: "https://github.com/dragonkeep/GoSSRF",
     tag: "Go",
   },
-
+  {
+    banner: "/project-img/GoAttack.png",
+    title: "GoAttack",
+    description:
+      "GoAttack 是一款运用Go语言作为后端和Vue 3作为前端开发的现代化网络安全扫描分析平台。它被设计用于对标商业级漏洞扫描器，并提供一系列包括主机探测、端点梳理、资产测绘、漏扫POC验证和自动报告等多位一体的安全分析能力。旨在为安全工程师、红蓝渗透测试人员及安全运维管理团队提供一个精练、高效、可扩展且界面友好的集成式作战平台。",
+    link: "https://github.com/dragonkeep/GoAttack",
+    tag: "Go, Vue3",
+  },
 ];

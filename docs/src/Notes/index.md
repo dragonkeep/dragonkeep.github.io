@@ -19,7 +19,7 @@ types:
     link: "/Notes/Penetration"
     icon: "⚔️"
   - name: "人生快乐秘籍"
-    link: "/Notes/Cartoon"
+    link: "/Notes/Cartoon/Cartoon"
 # flow: true
 ---
 

@@ -28,4 +28,12 @@ export const friendsInfo: Friend[] = [
     tag: "CTFer",
     color: "sky",
   },
+  {
+    avatar: "https://quietdawn.github.io/img/p3cd0wn.jpg",
+    name: "p3cd0wn",
+    title: "CTF",
+    link: "https://quietdawn.github.io/",
+    tag: "CTFer",
+    color: "sky",
+  },
 ];
