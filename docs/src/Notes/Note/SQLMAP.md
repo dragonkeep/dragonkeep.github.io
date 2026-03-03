@@ -5,7 +5,7 @@ tags: "Note"
 updateTime: "2026-3-3 17:44"
 ---
 
-# SQLMAP 
+# SQLMAP使用
 
 ## 0x 01 简介
 
