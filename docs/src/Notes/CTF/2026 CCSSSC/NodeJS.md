@@ -226,11 +226,11 @@ Content-Length: 68
 {"oldPassword":"test","newPassword":"test","confirmPassword":"test","constructor":{"prototype":{"isAdmin":true}}}
 ```
 
-![image](assets/image-20260419100130-5s2d3pu.png)
+![image](assets/NodeJS/image-20260419100130-5s2d3pu.png)
 
 成功将`user`属性中的`isAdmin`值修改为`true`。
 
-![image](assets/image-20260419100142-qyyurik.png)
+![image](assets/NodeJS/image-20260419100142-qyyurik.png)
 
 在`/sandbox`路由中存在`vm2`沙盒的命令执行
 
@@ -276,8 +276,8 @@ promise.catch(e => {
 
 这里当时线下没有找到POC没打出来，本地搭建一个环境进行复现
 
-![image](assets/image-20260420194820-c5typxz.png)
+![image](assets/NodeJS/image-20260420194820-c5typxz.png)
 
 成功逃逸沙盒并执行命令
 
-![image](assets/image-20260420194700-s4mujjv.png)
+![image](assets/NodeJS/image-20260420194700-s4mujjv.png)
