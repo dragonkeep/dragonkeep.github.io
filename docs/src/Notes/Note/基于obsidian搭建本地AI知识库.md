@@ -1,8 +1,7 @@
 ---
 title: 基于obsidian搭建本地AI知识库
-tags:
-  - Note
 outline: deep
+tags: "Note"
 updateTime: 2026-5-7 23:38
 ---
 # 基于obsidian搭建本地AI知识库
