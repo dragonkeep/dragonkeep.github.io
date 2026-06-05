@@ -1,7 +1,7 @@
 ---
 title: LLMNR_Poisoning
 outline: deep
-tags: "Note,Domain"
+tags: "Note,AD"
 updateTime: 2026-5-29 1:38
 ---
 
