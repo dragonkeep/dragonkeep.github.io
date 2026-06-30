@@ -15,8 +15,7 @@ updateTime: 2026-5-29 23:38
 | :------: | :-: | :-------------: | :--------------------: | :----------------------------: |
 |   DC01   | 域控  | 192.168.127.10  |  Windows Server 2019   | CORP\Administrator /  Win@2019 |
 | SRV2016  | 域成员 | 192.168.127.11  |  Windows Server 2016   |    Administrator / Win@2016    |
-| WIN10-PC | 域成员 | 192.168.127.100 |     Windows 10 Pro     |     CORP\dragonkeep / <空>      |
-| WIN7-PC  | 域成员 | 192.168.127.101 | Windows 7 Pro/Ultimate |               待定               |
+| WIN10-PC | 域成员 | 192.168.127.100 |     Windows 10 Pro     |      dragonkeep / Dr@gon123      |
 |   Kali   | 攻击机 |  192.168.127.139  |       Kali Linux       |             kali / kali         |
 
 > Kali 需要把域名添加进/etc/hosts
